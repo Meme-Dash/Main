@@ -1,0 +1,131 @@
+import table, random
+
+class Sprite:
+    def __init__(self, table, width=14, height=14, color="red",
+               x_speed=150, y_speed=4, x_start=0, y_start=0):
+        self.width = width
+        self.height = height
+        self.x_posn = x_start
+        self.y_posn = y_start
+        self.color = color
+
+
+        self.x_start = x_start
+        self.y_start = y_start
+        self.x_speed = x_speed
+        self.y_speed = y_speed
+        self.table = table
+        self.circle = self.table.draw_oval(self)
+
+    def start_position(self):
+        self.x_posn = self.x_start
+        self.y_posn = self.y_start
+
+    def start_sprite(self, x_speed, y_speed):
+        self.x_speed = -x_speed if random.randint(0,1) else x_speed
+        self.y_speed = -y_speed if random.randint(0,1) else y_speed
+        self.start_position()
+
+
+    def move_up(self, master):
+        self.y_posn = self.y_posn - self.y_speed
+        if(self.y_posn <= 0):
+            self.y_posn = 0
+        x1 = self.x_posn
+        x2 = self.x_posn+self.width
+        y1 = self.y_posn
+        y2 = self.y_posn+self.height
+        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+
+    def move_down(self, master):
+        self.y_posn = self.y_posn + self.y_speed
+        far_bottom = self.table.height - self.height
+        if(self.y_posn >= far_bottom):
+            self.y_posn = far_bottom
+        x1 = self.x_posn
+        x2 = self.x_posn+self.width
+        y1 = self.y_posn
+        y2 = self.y_posn+self.height
+        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+
+    def move_left(self, master):
+        self.x_posn = self.x_posn - self.x_speed
+        if(self.x_posn <= 0):
+            self.x_posn = 0
+        x1 = self.x_posn
+        x2 = self.x_posn+self.width
+        y1 = self.y_posn
+        y2 = self.y_posn+self.height
+        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+
+    def move_right(self, master):
+        self.x_posn = self.x_posn + self.x_speed
+        far_right = self.table.width - self.width
+        if(self.x_posn >= far_right):
+            self.x_posn = far_right
+        x1 = self.x_posn
+        x2 = self.x_posn+self.width
+        y1 = self.y_posn
+        y2 = self.y_posn+self.height
+        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+
+    def stop_sprite(self):
+        self.x_speed = 0
+        self.y_speed = 0
+
+    def detect_collision(self, sprite):
+        collision_direction = ""
+        collision = False
+        feel = 5
+
+        top = self.y_posn
+        bottom = self.y_posn + self.height
+        left = self.x_posn
+        right = self.x_posn + self.width
+        v_centre = top + (self.height/2)
+        h_centre = left + (self.width/2)
+
+        top_s = sprite.y_posn
+        bottom_s = sprite.y_posn + sprite.height
+        left_s = sprite.x_posn
+        right_s = sprite.x_posn + sprite.width
+        r = (right_s - left_s)/2
+        v_centre_s = top_s + r
+        h_centre_s = left_s + r
+
+
+        return (collision, collision_direction)
+
+def sprite(self, rectangle):
+    if(s.detect_collision(sprite)):
+        my_table.remove_item(enemy_sprite)
+        
+        
+
+
+    x1 = rectangle.x_posn
+    x2 = rectangle.x_posn + rectangle.width
+    y1 = rectangle.y_posn
+    y2 = rectangle.y_posn + rectangle.height
+    c = rectangle.color
+    return self.canvas.create_rectangle(x1, y1, x2, y2, fill=c)
+
+
+def enemy_sprites():
+    enemy_sprites = []
+es=1
+
+counter = 0
+enemy_sprites = []
+rows = 0
+gaps = 30
+
+
+while rows < 5:
+    es=1
+    while es < 7:
+        i=80
+        enemy_sprites.append(sprite(table = my_table, width=50, height=20, x_speed=3, y_speed=15, x_posn=(es*i), y_posn=75+(rows*gap), color="green"))
+        enemy_sprites.append(enemy_sprite)
+        es = es+1
+    rows = rows+1

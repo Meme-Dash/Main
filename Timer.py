@@ -4,7 +4,7 @@ import time
 class timer:
     def timer(t):
         now = time.localtime(time.time())
-        return now[60]
+        return now[5]
 
     seconds = 60
     current_sec = timer(60)

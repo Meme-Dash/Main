@@ -2,7 +2,7 @@ import table, random
 
 class Sprite:
     def __init__(self, table, width=14, height=14, color="red",
-               x_speed=150, y_speed=4, x_posn=random.randint(1,600), y_posn=random.randint(1,400)):
+               x_speed=150, y_speed=4, x_posn=0, y_posn=0):
         self.width = width
         self.height = height
         self.x_posn = x_start

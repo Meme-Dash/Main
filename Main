@@ -8,6 +8,6 @@ my_table = MDtable.Table(window)
 def game_flow():
 
     if evil_sprite detect_collision(player):
-        remove_item(evil_sprite)
+        remove_item(enemy_sprite)
     
     window.after(50, game_flow)

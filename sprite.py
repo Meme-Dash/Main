@@ -73,37 +73,15 @@ class Sprite:
         self.x_speed = 0
         self.y_speed = 0
 
-    def detect_collision(self, sprite):
-        collision_direction = ""
-        collision = False
-        feel = 5
-
-        top = self.y_posn
-        bottom = self.y_posn + self.height
-        left = self.x_posn
-        right = self.x_posn + self.width
-        v_centre = top + (self.height/2)
-        h_centre = left + (self.width/2)
-
-        top_s = sprite.y_posn
-        bottom_s = sprite.y_posn + sprite.height
-        left_s = sprite.x_posn
-        right_s = sprite.x_posn + sprite.width
-        r = (right_s - left_s)/2
-        v_centre_s = top_s + r
-        h_centre_s = left_s + r
-
-
-        return (collision, collision_direction)
 
 
 
 class evil_sprite:
-    def __init__(self, table, width=14, height=14, x_posn=random.randint(1,6), y_posn=random.randint(1,6)):
+    def __init__(self, table, width=14, height=14, x_posn=random.randint(+300, -300), y_posn=random.randint(+200, -200)):
 
         evil_sprites = []
         es=1
-        while b < 7:
+        while es < 7:
             i=80
             evil_sprites.append(sprite(table = my_table, width=50, height=20, x_posn=(es*i), y_posn=75, color="red"))
             es = es+1
@@ -122,10 +100,10 @@ class evil_sprite:
         v_centre = top + (self.height/2)
         h_centre = left + (self.width/2)
 
-        top_es = ball.y_posn
-        bottom_es = ball.y_posn + ball.height
-        left_es = ball.x_posn
-        right_es = ball.x_posn + ball.width
+        top_es = evil_sprite.y_posn
+        bottom_es = evil_sprite.y_posn + evil_sprite.height
+        left_es = evil_sprite.x_posn
+        right_es = evil_sprite.x_posn + evil_sprite.width
         r = (right_es - left_es)/2
         v_centre_es = top_es + r
         h_centre_es = left_es + r

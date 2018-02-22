@@ -1,4 +1,4 @@
-import random, table
+import random, MDtable
 
 class Sprite:
     def __init__(self, table, width=14, height=14, color="red",
@@ -14,7 +14,7 @@ class Sprite:
         self.y_start = y_start
         self.x_speed = x_speed
         self.y_speed = y_speed
-        self.table = table
+        self.table = MDtable
         self.circle = self.table.draw_oval(self)
 
     def start_position(self):
@@ -35,7 +35,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+        self.table.move_item(self.oval, x1, y1, x2, y2)
 
     def move_down(self, master):
         self.y_posn = self.y_posn + self.y_speed
@@ -46,7 +46,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+        self.table.move_item(self.oval, x1, y1, x2, y2)
 
     def move_left(self, master):
         self.x_posn = self.x_posn - self.x_speed
@@ -56,7 +56,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+        self.table.move_item(self.oval, x1, y1, x2, y2)
 
     def move_right(self, master):
         self.x_posn = self.x_posn + self.x_speed
@@ -67,7 +67,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.rectangle, x1, y1, x2, y2)
+        self.table.move_item(self.oval, x1, y1, x2, y2)
 
     def stop_sprite(self):
         self.x_speed = 0

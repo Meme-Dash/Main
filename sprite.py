@@ -77,7 +77,7 @@ class Sprite:
 
 
 class Evil_sprite:
-    def __init__(self, table, width=14, height=14, x_posn=random.randint(300, -300), y_posn=random.randint(200, -200)):
+    def __init__(self, table, width=14, height=14, x_posn=random.randint(-300, 300), y_posn=random.randint(-200, 200)):
 
         evil_sprites = []
         es=1

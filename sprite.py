@@ -15,7 +15,7 @@ class Sprite:
         self.x_speed = x_speed
         self.y_speed = y_speed
         self.table = MDtable
-        self.val = self.table.draw_oval(self)
+        self.oval = self.table.draw_oval(self)
 
     def start_position(self):
         self.x_posn = self.x_start

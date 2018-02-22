@@ -1,7 +1,7 @@
 import random, MDtable
 
 class Sprite:
-    def __init__(self, table, width=14, height=14, color="red",
+    def __init__(self, MDtable, width=14, height=14, color="red",
                x_speed=150, y_speed=4, x_start=0, y_start=0):
         self.width = width
         self.height = height
@@ -15,7 +15,7 @@ class Sprite:
         self.x_speed = x_speed
         self.y_speed = y_speed
         self.table = MDtable
-        self.circle = self.table.draw_oval(self)
+        self.val = self.table.draw_oval(self)
 
     def start_position(self):
         self.x_posn = self.x_start

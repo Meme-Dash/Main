@@ -1,30 +1,20 @@
-import random, MDtable
+import MDtable, random
 
 class Sprite:
-    def __init__(self, MDtable, width=14, height=14, color="red",
-               x_speed=150, y_speed=4, x_start=0, y_start=0):
+
+    def __init__(self, table, width=15, height=100, x_posn=50, y_posn=50,
+                 color="green", x_speed=23, y_speed=23):
         self.width = width
         self.height = height
-        self.x_posn = x_start
-        self.y_posn = y_start
+        self.x_posn = x_posn
+        self.y_posn = y_posn
         self.color = color
-
-
-        self.x_start = x_start
-        self.y_start = y_start
+        self.x_start = x_posn
+        self.y_start = y_posn
         self.x_speed = x_speed
         self.y_speed = y_speed
-        self.table = MDtable
-        self.oval = self.table.draw_oval(self)
-
-    def start_position(self):
-        self.x_posn = self.x_start
-        self.y_posn = self.y_start
-
-    def start_sprite(self, x_speed, y_speed):
-        self.x_speed = -x_speed if random.randint(0,1) else x_speed
-        self.y_speed = -y_speed if random.randint(0,1) else y_speed
-        self.start_position()
+        self.table = table
+        self.circle = self.table.draw_oval(self)
 
 
     def move_up(self, master):
@@ -35,7 +25,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.oval, x1, y1, x2, y2)
+        self.table.move_item(self.circle, x1, y1, x2, y2)
 
     def move_down(self, master):
         self.y_posn = self.y_posn + self.y_speed
@@ -46,7 +36,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.oval, x1, y1, x2, y2)
+        self.table.move_item(self.circle, x1, y1, x2, y2)
 
     def move_left(self, master):
         self.x_posn = self.x_posn - self.x_speed
@@ -56,7 +46,7 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.oval, x1, y1, x2, y2)
+        self.table.move_item(self.circle, x1, y1, x2, y2)
 
     def move_right(self, master):
         self.x_posn = self.x_posn + self.x_speed
@@ -67,7 +57,16 @@ class Sprite:
         x2 = self.x_posn+self.width
         y1 = self.y_posn
         y2 = self.y_posn+self.height
-        self.table.move_item(self.oval, x1, y1, x2, y2)
+        self.table.move_item(self.circle, x1, y1, x2, y2)
+
+    def start_position(self):
+        self.x_posn = self.x_start
+        self.y_posn = self.y_start
+
+    def start_sprite(self, x_speed, y_speed):
+        self.x_speed = -x_speed if random.randint(0,1) else x_speed
+        self.y_speed = -y_speed if random.randint(0,1) else y_speed
+        self.start_position()
 
     def stop_sprite(self):
         self.x_speed = 0
@@ -77,16 +76,20 @@ class Sprite:
 
 
 class Evil_sprite:
-    def __init__(self, table, width=14, height=14, x_posn=random.randint(-300, 300), y_posn=random.randint(-200, 200)):
-
-        evil_sprites = []
-        es=1
-        while es < 7:
-            i=80
-            evil_sprites.append(sprite(table = my_table, width=50, height=20, x_posn=(es*i), y_posn=75, color="red"))
-            es = es+1
-
-
+    def __init__(self, table, width=14, height=14, x_posn=random.randint(0, 600), y_posn=random.randint(0, 400), color="red"):
+        self.width = width
+        self.height = height
+        self.x_posn = x_posn
+        self.y_posn = y_posn
+        self.color = color
+        self.x_start = x_posn
+        self.y_start = y_posn
+        self.table = table
+        self.rectangle = self.table.draw_rectangle(self)
+    def start_position(self):
+        self.x_posn = self.x_start
+        self.y_posn = self.y_start
+    
     def detect_collision(self, ball, sides_sweet_spot=True, topnbottom_sweet_spot=False):
         collision_direction = ""
         collision = False
@@ -139,7 +142,4 @@ class Evil_sprite:
 
 
             return (collision, collision_direction)
-
-
-            
 

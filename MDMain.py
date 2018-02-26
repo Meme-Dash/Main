@@ -18,10 +18,10 @@ def game_flow():
     
     window.after(50, game_flow)
 
-window.bind("<A>", player_s.move_left)
-window.bind("<D>", player_s.move_right)
-window.bind("<W>", player_s.move_up)
-window.bind("<S>", player_s.move_down)
+window.bind("<Left>", player_s.move_left)
+window.bind("<Right>", player_s.move_right)
+window.bind("<Up>", player_s.move_up)
+window.bind("<Down>", player_s.move_down)
 
 game_flow()
 window.mainloop

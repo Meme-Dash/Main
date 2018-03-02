@@ -15,7 +15,7 @@ class Sprite:
         self.y_speed = y_speed
         self.table = table
         self.circle = self.table.draw_oval(self)
-
+        
 
     def move_up(self, master):
         self.y_posn = self.y_posn - self.y_speed
@@ -72,29 +72,10 @@ class Sprite:
         self.x_speed = 0
         self.y_speed = 0
 
-
-
-
-class Evil_sprite:
-    def __init__(self, table, width=14, height=14, x_posn=random.randint(0, 600), y_posn=random.randint(0, 400), color="red"):
-        self.width = width
-        self.height = height
-        self.x_posn = x_posn
-        self.y_posn = y_posn
-        self.color = color
-        self.x_start = x_posn
-        self.y_start = y_posn
-        self.table = table
-        self.rectangle = self.table.draw_rectangle(self)
-    def start_position(self):
-        self.x_posn = self.x_start
-        self.y_posn = self.y_start
-    
-    def detect_collision(self, ball, sides_sweet_spot=True, topnbottom_sweet_spot=False):
+    def detect_collision(self, evil_sprite):
         collision_direction = ""
-        collision = False
         feel = 5
-
+        # bat variables:
 
         top = self.y_posn
         bottom = self.y_posn + self.height
@@ -102,44 +83,17 @@ class Evil_sprite:
         right = self.x_posn + self.width
         v_centre = top + (self.height/2)
         h_centre = left + (self.width/2)
+        # ball variables:
 
-        top_es = evil_sprite.y_posn
-        bottom_es = evil_sprite.y_posn + evil_sprite.height
-        left_es = evil_sprite.x_posn
-        right_es = evil_sprite.x_posn + evil_sprite.width
-        r = (right_es - left_es)/2
-        v_centre_es = top_es + r
-        h_centre_es = left_es + r
+        top_b = evil_sprite.y_posn
+        bottom_b = evil_sprite.y_posn + evil_sprite.height
+        left_b = evil_sprite.x_posn
+        right_b = evil_sprite.x_posn + evil_sprite.width
+        r = (right_b - left_b)/2
+        v_centre_b = top_b + r
+        h_centre_b = left_b + r
 
-        if((bottom_es > top) and (top_es < bottom) and (right_es > left) and (left_es < right)):
-            collision = True
-        if(collision):
-            if((top_es > top-r) and (bottom_es < bottom+r) and (right_es > right) and (left_es <= right)):
-                collision_direction = "E"
-                evil_sprites.x_speed = abs(evil_sprites.x_speed)
-
-            elif((left_es > left-r) and (right_es < right+r) and (bottom_es > bottom) and (top_es <= bottom)):
-                collision_direction = "S"
-                evil_sprite.y_speed = abs(evil_sprite.y_speed)
-
-            elif((left_es > left-r) and (right_es < right+r) and (top_es < top) and (bottom_es >= top)):
-                collision_direction = "N"
-                evil_sprite.y_speed = -abs(evil_sprite.y_speed)
-
-            elif((top_es > top-r) and (bottom_es < bottom+r) and (left_es < left) and (right_es >= left)):
-                collision_direction = "W"
-                evil_sprite.x_speed = -abs(evil_sprite.x_speed)
-            else:
-                collision_direction = "miss"
-
-            if((sides_sweet_spot == True) and (collision_direction == "W" or collision_direction == "E")):
-                adjustment = (-(v_centre - v_centre_es))/(self.height/2)
-                evil_sprite.y_speed = feel * adjustment
-
-            if((topnbottom_sweet_spot == True) and (collision_direction == "N" or collision_direction == "S")):
-                adjustment = (-(h_centre - h_centre_es))/(self.width/2)
-                evil_sprite.x_speed = feel * adjustment
-
-
-            return (collision, collision_direction)
+        if((bottom_b > top) and (top_b < bottom) and (right_b > left) and (left_b < right)):
+            return True
+        return False
 

@@ -13,8 +13,8 @@ class Table:
         self.scoreboard = self.canvas.create_text(300, 65, font=font, fill="red")
     #remove item for colision with enemy sprite
     def remove_item(self, item):
-        self.canvas.delete(item)
-
+         item.remove(self.canvas)
+        
     def move_item(self, item, x1, y1, x2, y2):
         self.canvas.coords(item, x1, y1, x2, y2)
  
@@ -34,7 +34,7 @@ class Table:
         c = oval.color
         return self.canvas.create_oval(x1, y1, x2, y2, fill=c)
 
-    def draw_score(self, left, right):
-        scores = str(right) + " " + str(left)
+    def draw_score(self, score):
+        scores = str(score)
         self.canvas.itemconfigure(self.scoreboard, text=scores)
 

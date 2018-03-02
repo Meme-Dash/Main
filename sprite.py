@@ -75,7 +75,7 @@ class Sprite:
     def detect_collision(self, evil_sprite):
         collision_direction = ""
         feel = 5
-        # bat variables:
+        
 
         top = self.y_posn
         bottom = self.y_posn + self.height
@@ -83,7 +83,7 @@ class Sprite:
         right = self.x_posn + self.width
         v_centre = top + (self.height/2)
         h_centre = left + (self.width/2)
-        # ball variables:
+        
 
         top_b = evil_sprite.y_posn
         bottom_b = evil_sprite.y_posn + evil_sprite.height

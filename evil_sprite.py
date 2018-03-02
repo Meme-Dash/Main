@@ -1,7 +1,7 @@
 import MDtable, random
 
 class Evil_sprite:
-    def __init__(self, table, width=14, height=14, x_posn=random.randint(0, 600), y_posn=random.randint(0, 400), color="red"):
+    def __init__(self, table, width=14, height=14, x_posn=random.randint(0, 3200), y_posn=random.randint(0, 1050), color="red"):
         self.width = width
         self.height = height
         self.x_posn = x_posn
@@ -17,4 +17,4 @@ class Evil_sprite:
         self.y_posn = self.y_start
     def remove(self,canvas):
         canvas.delete(self.rectangle)
-        self.x_posn=999
+        self.x_posn=10

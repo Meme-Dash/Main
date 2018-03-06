@@ -12,16 +12,27 @@ evil_sprite2 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_po
 evil_sprite3 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
 evil_sprite4 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
 evil_sprite5 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+evil_sprite6 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+evil_sprite7 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+evil_sprite8 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+evil_sprite9 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+evil_sprite10 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+death1 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+
+
 
 
 def game_flow():
     global score_solo
 
+    if death1.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+
     if player_s.detect_collision(evil_sprite1) == True:
         score_solo = score_solo + 1
         my_table.remove_item(evil_sprite1)
         my_table.draw_score(score_solo)
-        if(score_solo >= 25):
+        if(score_solo >= 50):
             score_solo = "Ya Win"
             my_table.draw_score(score_solo)
 
@@ -29,7 +40,7 @@ def game_flow():
         score_solo = score_solo + 1
         my_table.remove_item(evil_sprite2)
         my_table.draw_score(score_solo)
-        if(score_solo >= 25):
+        if(score_solo >= 50):
             score_solo = "Ya Win"
             my_table.draw_score(score_solo)
 
@@ -37,7 +48,7 @@ def game_flow():
         score_solo = score_solo + 1
         my_table.remove_item(evil_sprite3)
         my_table.draw_score(score_solo)
-        if(score_solo >= 25):
+        if(score_solo >= 50):
             score_solo = "Ya Win"
             my_table.draw_score(score_solo)
 
@@ -45,7 +56,7 @@ def game_flow():
         score_solo = score_solo + 1
         my_table.remove_item(evil_sprite4)
         my_table.draw_score(score_solo)
-        if(score_solo >= 25):
+        if(score_solo >= 50):
             score_solo = "Ya Win"
             my_table.draw_score(score_solo)
 
@@ -53,19 +64,63 @@ def game_flow():
         score_solo = score_solo + 1
         my_table.remove_item(evil_sprite5)
         my_table.draw_score(score_solo)
-        if(score_solo >= 25):
+        if(score_solo >= 50):
+            score_solo = "Ya Win"
+            my_table.draw_score(score_solo)
+    if player_s.detect_collision(evil_sprite6) == True:
+        score_solo = score_solo + 1
+        my_table.remove_item(evil_sprite6)
+        my_table.draw_score(score_solo)
+        if(score_solo >= 50):
+            score_solo = "Ya Win"
+            my_table.draw_score(score_solo)
+
+    if player_s.detect_collision(evil_sprite7) == True:
+        score_solo = score_solo + 1
+        my_table.remove_item(evil_sprite7)
+        my_table.draw_score(score_solo)
+        if(score_solo >= 50):
+            score_solo = "Ya Win"
+            my_table.draw_score(score_solo)
+
+    if player_s.detect_collision(evil_sprite8) == True:
+        score_solo = score_solo + 1
+        my_table.remove_item(evil_sprite8)
+        my_table.draw_score(score_solo)
+        if(score_solo >= 50):
+            score_solo = "Ya Win"
+            my_table.draw_score(score_solo)
+
+    if player_s.detect_collision(evil_sprite9)== True:
+        score_solo = score_solo + 1
+        my_table.remove_item(evil_sprite9)
+        my_table.draw_score(score_solo)
+        if(score_solo >= 50):
+            score_solo = "Ya Win"
+            my_table.draw_score(score_solo)
+
+    if player_s.detect_collision(evil_sprite10) == True:
+        score_solo = score_solo + 1
+        my_table.remove_item(evil_sprite10)
+        my_table.draw_score(score_solo)
+        if(score_solo >= 50):
             score_solo = "Ya Win"
             my_table.draw_score(score_solo)
             
     window.after(50, game_flow)
 
 def restart_game(master):
-    global evil_sprite1,evil_sprite2,evil_sprite3,evil_sprite4,evil_sprite5
+    global evil_sprite1,evil_sprite2,evil_sprite3,evil_sprite4,evil_sprite5,evil_sprite6,evil_sprite7,evil_sprite8,evil_sprite9,evil_sprite10
     evil_sprite1 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
     evil_sprite2 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
     evil_sprite3 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
     evil_sprite4 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
     evil_sprite5 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+    evil_sprite6 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+    evil_sprite7 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+    evil_sprite8 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+    evil_sprite9 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
+    evil_sprite10 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
     game_flow()
 
 window.bind("<Left>", player_s.move_left)

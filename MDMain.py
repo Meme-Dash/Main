@@ -18,6 +18,15 @@ evil_sprite8 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_po
 evil_sprite9 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
 evil_sprite10 = evil_sprite.Evil_sprite(table=my_table, width=50, height=50, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050))
 death1 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death2 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death3 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death4 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death5 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death6 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death7 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death8 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death9 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
+death10 = sprite.Sprite(table=my_table, width=100, height=100, x_posn=random.randint(0, 4475), y_posn=random.randint(0, 1050), color="black", x_speed=0, y_speed=0)
 
 
 
@@ -27,6 +36,25 @@ def game_flow():
 
     if death1.detect_collision(player_s) == True:
         my_table.remove_item(player_s)
+    if death2.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death3.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death4.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death5.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death6.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death7.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death8.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death9.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    if death10.detect_collision(player_s) == True:
+        my_table.remove_item(player_s)
+    
 
     if player_s.detect_collision(evil_sprite1) == True:
         score_solo = score_solo + 1
@@ -131,5 +159,4 @@ window.bind("<space>", restart_game)
 
 game_flow()
 window.mainloop
-
 
